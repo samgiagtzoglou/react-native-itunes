@@ -204,14 +204,13 @@ RCT_EXPORT_METHOD(getTracks:(NSDictionary *)params successCallback:(RCTResponseS
         }
         if (artwork == nil) {
             artworkBase64 = @"";
-        } else {
-            UIImage *image = [artwork imageWithSize:CGSizeMake(480, 480)];
-            artworkBase64 = [NSString stringWithFormat:@"%@%@", @"data:image/jpeg;base64,", [self imageToNSString:image]];
         }
 
         NSDictionary *songDictionary = [NSMutableDictionary dictionary];
 
         if (fields == nil) {
+            UIImage *image = [artwork imageWithSize:CGSizeMake(480, 480)];
+            artworkBase64 = [NSString stringWithFormat:@"%@%@", @"data:image/jpeg;base64,", [self imageToNSString:image]];
             songDictionary = @{
               @"albumTitle": albumTitle,
               @"albumArtist": albumArtist,
