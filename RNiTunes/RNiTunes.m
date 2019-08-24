@@ -223,12 +223,13 @@ RCT_EXPORT_METHOD(getTracks:(NSDictionary *)params successCallback:(RCTResponseS
             };
         } else {
             if ([fields containsObject: @"persistentId"]) {
-                NSString *persistentId = [song valueForProperty: MPMediaItemPropertyPersistentID];
+                // Che 2019-08-23: keep persistentID as string to not overflow in javascript
+                NSString *persistentId = [[song valueForProperty: MPMediaItemPropertyPersistentID] stringValue];
                 if (persistentId == nil) {
                     persistentId = @"0";
                 }
 
-                [songDictionary setValue:[NSNumber numberWithInt:[persistentId intValue]] forKey:@"persistentId"];
+                [songDictionary setValue:persistentId forKey:@"persistentId"];
             }
             if ([fields containsObject: @"albumPersistentId"]) {
                 NSString *albumPersistentId = [song valueForProperty: MPMediaItemPropertyAlbumPersistentID];
