@@ -1,0 +1,9 @@
+Pods
+Podfile.lock
+node_modules
+.DS_Store
+project.xcworkspace
+xcuserdata
+xcshareddata
+*.log
+*.lock

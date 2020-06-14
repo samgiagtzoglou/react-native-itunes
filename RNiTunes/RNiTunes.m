@@ -559,6 +559,22 @@ RCT_EXPORT_METHOD(getPlaylists:(NSDictionary *)params successCallback:(RCTRespon
     successCallback(@[playlistsArray]);
 }
 
+RCT_EXPORT_METHOD(playAppleMusicTrack:(NSString *)storeId callback:(RCTResponseSenderBlock)callback) {
+    NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+
+    if (storeId != nil) {
+
+        NSArray * storeIds = [NSArray arrayWithObjects: storeId, nil];
+        [[MPMusicPlayerController applicationMusicPlayer] setQueueWithStoreIDs: storeIds];
+        [[MPMusicPlayerController applicationMusicPlayer] play];
+
+        callback(@[[NSNull null]]);
+
+    } else {
+        callback(@[@"Null storeId"]);
+    }
+}
+
 RCT_EXPORT_METHOD(playTrack:(NSDictionary *)trackItem callback:(RCTResponseSenderBlock)callback) {
     NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 

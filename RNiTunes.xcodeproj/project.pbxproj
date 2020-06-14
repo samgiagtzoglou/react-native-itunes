@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7017F826C137DF0629127891 /* libPods-RNiTunes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D51D6010C237D93DDDC51DBE /* libPods-RNiTunes.a */; };
 		FFEC31A01C46B4EB0080A80E /* RNiTunes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FFEC319F1C46B4EB0080A80E /* RNiTunes.h */; };
 		FFEC31A21C46B4EB0080A80E /* RNiTunes.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEC31A11C46B4EB0080A80E /* RNiTunes.m */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		145BF899F63E3610C4D77B4A /* Pods-RNiTunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNiTunes.debug.xcconfig"; path = "Target Support Files/Pods-RNiTunes/Pods-RNiTunes.debug.xcconfig"; sourceTree = "<group>"; };
+		D51D6010C237D93DDDC51DBE /* libPods-RNiTunes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNiTunes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6D3418992DAB782394AA01D /* Pods-RNiTunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNiTunes.release.xcconfig"; path = "Target Support Files/Pods-RNiTunes/Pods-RNiTunes.release.xcconfig"; sourceTree = "<group>"; };
 		FFEC319C1C46B4EB0080A80E /* libRNiTunes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNiTunes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFEC319F1C46B4EB0080A80E /* RNiTunes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNiTunes.h; sourceTree = "<group>"; };
 		FFEC31A11C46B4EB0080A80E /* RNiTunes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNiTunes.m; sourceTree = "<group>"; };
@@ -35,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7017F826C137DF0629127891 /* libPods-RNiTunes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A09B7461E9D6368620909F97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D51D6010C237D93DDDC51DBE /* libPods-RNiTunes.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E962533B822386EE5A7199AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				145BF899F63E3610C4D77B4A /* Pods-RNiTunes.debug.xcconfig */,
+				F6D3418992DAB782394AA01D /* Pods-RNiTunes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FFEC31931C46B4EB0080A80E = {
 			isa = PBXGroup;
 			children = (
 				FFEC319E1C46B4EB0080A80E /* RNiTunes */,
 				FFEC319D1C46B4EB0080A80E /* Products */,
+				E962533B822386EE5A7199AE /* Pods */,
+				A09B7461E9D6368620909F97 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +97,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFEC31A51C46B4EB0080A80E /* Build configuration list for PBXNativeTarget "RNiTunes" */;
 			buildPhases = (
+				95653CF972C2151F4057FA31 /* [CP] Check Pods Manifest.lock */,
 				FFEC31981C46B4EB0080A80E /* Sources */,
 				FFEC31991C46B4EB0080A80E /* Frameworks */,
 				FFEC319A1C46B4EB0080A80E /* CopyFiles */,
@@ -105,6 +130,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = FFEC31931C46B4EB0080A80E;
@@ -116,6 +142,31 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95653CF972C2151F4057FA31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RNiTunes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FFEC31981C46B4EB0080A80E /* Sources */ = {
@@ -166,7 +217,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
@@ -205,7 +256,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 				SDKROOT = iphoneos;
@@ -215,6 +266,7 @@
 		};
 		FFEC31A61C46B4EB0080A80E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 145BF899F63E3610C4D77B4A /* Pods-RNiTunes.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../React/**",
@@ -222,6 +274,7 @@
 					"$(SRCROOT)/node_modules/react-native/React/**",
 					"$(SRCROOT)/../react-native/React/**",
 					"$(SRCROOT)/../../../node_modules/react-native/React/**",
+					"${SRCROOT}/../Pods/Headers/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -231,6 +284,7 @@
 		};
 		FFEC31A71C46B4EB0080A80E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6D3418992DAB782394AA01D /* Pods-RNiTunes.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../React/**",
@@ -238,6 +292,7 @@
 					"$(SRCROOT)/node_modules/react-native/React/**",
 					"$(SRCROOT)/../react-native/React/**",
 					"$(SRCROOT)/../../../node_modules/react-native/React/**",
+					"${SRCROOT}/../Pods/Headers/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
